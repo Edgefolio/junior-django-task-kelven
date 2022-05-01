@@ -14,13 +14,33 @@
     </header>
 
     <main>
+        
+        <!--Filter by Strategy -->
+        <form method="GET" action="{% url 'view_funds' %}">
+            <label for="strategy_list">Filter Funds by Strategy:</label>
+            <select name="strategy_filter" id="strategy_list">
+                
+                {% for fund in funds %}
+                <option value="{{ fund.strategy }}">{{ fund.strategy }}</option>
+                {% endfor %}
+            </select>
+        </form>
+
+        <!-- Funds Table -->
+
         <table>
-            <tr>
-                <th>Name</th>
-                <th>Strategy</th>
-                <th>AUM (USD)</th>
-                <th>Inception Date</th>
-            </tr>
+            <!--Table Header: to display field names -->
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Strategy</th>
+                    <th>AUM (USD)</th>
+                    <th>Inception Date</th>
+                </tr>
+            </thead>
+
+            <!--Table Body: to dsiplay fund data -->
+            <tbody>
             {% for fund in funds %}
                 <tr>
                     <td>{{ fund.name }}</td>
@@ -29,14 +49,28 @@
                     <td>{{ fund.inception_date }}</td>
                 </tr>
     
-            <!--Handle instances where there are no funds data matching selection-->
+            <!--Handle instances where there are no funds data matching selection -->
             {% empty %}
                 <tr>
                     <td>There are no funds matching your selection</td>
                 </tr>
             
             {% endfor %}
+            </tbody>
+
+            <!--Table Footer: for Count / Sum Totals -->
+            <tfoot>
+                <tr>
+                    <td>Total number of funds: {{ funds_num }}</td>
+                </tr>
+                <tr>
+                    <td>Total AUM value of funds (USD): PLACEHOLDER</td>
+                </tr>
+            </tfoot>
+
         </table>
+
+
     </main>
     
 </body>
