@@ -4,10 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FUND-VIEW: Funds</title>
 </head>
 <body>
-    <h1>Funds</h1>
-    <p>Test to view funds page</p>
+    <header>
+        <h1>Funds</h1>
+        <p>Placeholder text - describe purpose / actions</p>
+        <button><a href="{% url 'home' %}">Return to home page</a></button>
+    </header>
+
+    <main>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Strategy</th>
+                <th>AUM (USD)</th>
+                <th>Inception Date</th>
+            </tr>
+            {% for fund in funds %}
+                <tr>
+                    <td>{{ fund.name }}</td>
+                    <td>{{ fund.strategy }}</td>
+                    <td>{{ fund.aum }}</td>
+                    <td>{{ fund.inception_date }}</td>
+                </tr>
+    
+            <!--Handle instances where there are no funds data matching selection-->
+            {% empty %}
+                <tr>
+                    <td>There are no funds matching your selection</td>
+                </tr>
+            
+            {% endfor %}
+        </table>
+    </main>
+    
 </body>
 </html>

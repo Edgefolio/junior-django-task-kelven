@@ -1,6 +1,15 @@
 from django.shortcuts import render
+from .models import Fund
 
-# Create your views here.
+
+def home(request):
+    return render(request, 'funds/home.html')
+
+
 def view_funds(request):
     """ View to display all funds """
-    return render(request, 'funds/funds.html')
+    funds = Fund.objects.all()
+    context = {
+        'funds': funds
+    }
+    return render(request, 'funds/funds.html', context)
