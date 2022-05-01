@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+
+    /* Typography */
+    --header-text:'Montserrat', sans-serif;
+    --standard-text:'Inter', sans-serif;
+
+    /* Colour Palette */
+    --white: rgb(255,255,255);
+    --off-black:rgb(65,74,76);
+    --black: rgb(0,0,0);
+    --light-grey: rgb(222,222,222);
+    --dark-blue: rgb(0,0,153);
+    --mid-blue: rgb(0,0,246);
+    --yellow: rgb(255,255,204);
+}
+
+/*--- Global ------------*/
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: var(--light-grey);
+    color:var(--black);
+    font-family: var(--standard-text);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--header-text);
+}
+
+header {
+    margin-top: 2vh;
+    padding: 2vh 4vw; 
+}
+
+
+/*--- Utilities ---------*/
+
+.txt-center {
+    text-align: center;
+}
+
+.txt-right {
+    text-align: right;
+}
+
+.bordered {
+    border: solid black 1px;
+    border-radius: 5px;
+}
+
+
+/*-- Buttons ------------*/
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15vw;
+    height: 5vh;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.btn:hover {
+    background-color: var(--mid-blue);
+}
+
+.btn-small {
+    background-color:var(--yellow);
+}
+
+/*-- Home Page------------*/
+
+.home-section {
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 2vh;
+    padding: 2vh 4vw;
+}
+
+
+/*-- Funds Page------------*/
+
+.funds-main {
+    max-width: 90vw;
+    margin: auto;
+}
+
+.funds-filter {
+    margin-bottom: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.funds-table {
+    border: 1px solid var(--dark-blue);
+    border-collapse: collapse;
+    background-color: var(--white);
+    width: 50vw;
+    padding: 1vh 1vw;
+    margin: auto;
+}
+
+th, td {
+    border: 1px solid var(--dark-blue);
+}
+
+.fund-totals {
+    width: 50vw;
+    margin: auto;
+    margin-bottom: 10vh;
+}

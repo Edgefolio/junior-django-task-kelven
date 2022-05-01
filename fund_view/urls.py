@@ -17,8 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from funds.views import home, view_funds
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('view_funds', view_funds, name='view_funds'),
-]
+] 

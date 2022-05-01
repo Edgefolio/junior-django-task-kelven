@@ -1,27 +1,34 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Base.css-->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}">
     <title>FUND-VIEW: Home</title>
 </head>
 <body>
-    <header>
+
+    <header class="txt-center">
         <h1>Welcome to Fund-View</h1>
         <p>Please select from one of the options below</p>
     </header>
-    <main>      
-        <section>
+    
+    <main>     
+
+        <section class="bordered home-section txt-center">
             <h3>Upload Fund Data</h3>
             <p>Placeholder text - section to upload file data</p>
         </section>
 
-        <section>
+        <section class="bordered home-section txt-center">
             <h3>View Funds Data</h3>
-            <p>Placeholder - link to view funds data</p>
-            <button><a href="{% url 'view_funds' %}">Click to view Funds</a></button>
+            <a class="btn" href="{% url 'view_funds' %}">Click to view Funds</a>
         </section>
+
     </main>
+
 </body>
 </html>

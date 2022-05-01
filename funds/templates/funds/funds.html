@@ -1,31 +1,35 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Base.css-->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}">
     <title>FUND-VIEW: Funds</title>
 </head>
 <body>
-    <header>
+
+    <header class="txt-center">
         <h1>Funds</h1>
-        <p>Placeholder text - describe purpose / actions</p>
-        <button><a href="{% url 'home' %}">Return to home page</a></button>
+        <p>Table below presents funds data which has been successfully loaded. The funds can be filtered by strategy type.</p>
     </header>
 
-    <main>
+    <main class="funds-main">
         
         <!--Filter by Strategy -->
-        <form method="GET" action="{% url 'view_funds' %}">
-            <label>Select a strategy type to filter funds</label>
+        <form class="funds-filter" method="GET" action="{% url 'view_funds' %}">
+            <label>Filter by  &nbsp;</label>
             {{ filter.form }}
-            <button type="submit">Filter</button>
+            <button class="btn-small" type="submit">Apply Filter</button>
         </form>    
         
 
         <!-- Funds Table -->
 
-        <table>
+        <table class="funds-table">
             <!--Table Header: to display field names -->
             <thead>
                 <tr>
@@ -40,10 +44,10 @@
             <tbody>
             {% for fund in funds %}
                 <tr>
-                    <td>{{ fund.name }}</td>
-                    <td>{{ fund.strategy }}</td>
-                    <td>{{ fund.aum }}</td>
-                    <td>{{ fund.inception_date }}</td>
+                    <td class="txt-center">{{ fund.name }}</td>
+                    <td class="txt-center">{{ fund.strategy }}</td>
+                    <td class="txt-right">{{ fund.aum }}</td>
+                    <td class="txt-center">{{ fund.inception_date }}</td>
                 </tr>
     
             <!--Handle instances where there are no funds data matching selection -->
@@ -54,20 +58,21 @@
             
             {% endfor %}
             </tbody>
-
-            <!--Table Footer: for Count / Sum Totals -->
-            <tfoot>
-                <tr>
-                    <td>Total number of funds: {{ funds_num }}</td>
-                </tr>
-                <tr>
-                    <td>Total AUM value of funds (USD): PLACEHOLDER</td>
-                </tr>
-            </tfoot>
-
         </table>
+            
+        <!--Totals: for Count / AUM  -->
+        <div class="fund-totals">
+            <p>Total no. of funds: <span>{{ funds_num }}</span></p>
+            <p>Total AUM of funds (USD): <span>XXXXXXXXXXXX</span></p>
+        </div>
 
     </main>
+    
+  
+
+    <footer>
+        <a class="btn" href="{% url 'home' %}">Return to home page</a>
+    </footer>
     
 </body>
 </html>
