@@ -7,7 +7,7 @@ Django coding exercise to enable upload and view of examples of funds
 |-------|----------|--------|-------|
 | Generate a simple django application with simply SQLite as the database | N/A (Overarching goal) | In Progress | -- |
 |Single Model called 'Fund' representaing data in the sample file | | In Progress ||
-|A way to import CSV file matching the sample provided, via a file upload form on a Django web page | | Not Started | Data will initially be keyed via fixtures with a view to replace once pload form built |
+|A way to import CSV file matching the sample provided, via a file upload form on a Django web page | | Not Started | Data will initially be keyed via fixtures with a view to replace once upload form built |
 |Build web page displaying:| list of funds available in the database as a table with one column per field on the Fund model| Not Started ||
 |Build web page displaying:| a dropdown at the top of the page, allowing to select a Strategy value, and filtering the funds displayed in the page by one of the available Strategy choices| Not Started ||
 |Build web page displaying:| total number of Funds in the database (at the bottom of the table)| Not Started ||
