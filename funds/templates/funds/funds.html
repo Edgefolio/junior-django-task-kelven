@@ -17,14 +17,11 @@
         
         <!--Filter by Strategy -->
         <form method="GET" action="{% url 'view_funds' %}">
-            <label for="strategy_list">Filter Funds by Strategy:</label>
-            <select name="strategy_filter" id="strategy_list">
-                
-                {% for fund in funds %}
-                <option value="{{ fund.strategy }}">{{ fund.strategy }}</option>
-                {% endfor %}
-            </select>
-        </form>
+            <label>Select a strategy type to filter funds</label>
+            {{ filter.form }}
+            <button type="submit">Filter</button>
+        </form>    
+        
 
         <!-- Funds Table -->
 
@@ -69,7 +66,6 @@
             </tfoot>
 
         </table>
-
 
     </main>
     

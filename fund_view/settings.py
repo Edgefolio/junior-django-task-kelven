@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # additional django apps
+    'django_filters',
+
+    # site app
     'funds'
 ]
 
