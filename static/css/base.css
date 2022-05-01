@@ -53,6 +53,9 @@ header {
     border-radius: 5px;
 }
 
+.pad-left {
+    padding-left: 1vw;
+}
 
 /*-- Buttons ------------*/
 

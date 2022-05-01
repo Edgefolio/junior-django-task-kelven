@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     # additional django apps
     'django_filters',
+    'django.contrib.humanize',
 
     # site app
     'funds'
