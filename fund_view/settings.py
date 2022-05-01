@@ -70,6 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'fund_view.wsgi.application'
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-kelvenh-fundview-o2hno9s0xer.ws-eu43.gitpod.io']
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
