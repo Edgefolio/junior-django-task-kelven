@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 
 # Create your views here.
 def view_funds(request):
     """ View to display all funds """
-    return HttpResponse("Test - fund page displayed")
+    return render(request, 'funds/funds.html')

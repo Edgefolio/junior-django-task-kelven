@@ -19,5 +19,5 @@ from funds.views import view_funds
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('funds/', view_funds, name='view_funds')
+    path('', view_funds, name='view_funds')
 ]
