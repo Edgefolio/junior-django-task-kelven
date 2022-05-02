@@ -80,11 +80,13 @@
             <p>Note: API endpoints for invidual funds can be accessed via the fund name in the table above.</p>
             <a class="btn" href="{% url 'funds_list_api' %}">View API (All Data)</a>
             <p>API endpoints for specific strategies:</p>
-            <a class="btn" href="{% url 'funds_list_api' %}">View API (Arbitrage)</a>
-            <a class="btn" href="{% url 'funds_list_api' %}">View API (Long/Short Equity)</a>
-            <a class="btn" href="{% url 'funds_list_api' %}">View API (Global Macro)</a>
+            <div class="strategy-api">
+                <a class="btn" href="{% url 'funds_list_api' %}?strategy=arbitrage">View API (Arbitrage)</a>
+                <a class="btn" href="{% url 'funds_list_api' %}?strategy=long_short_equity">View API (Long/Short Equity)</a>
+                <a class="btn" href="{% url 'funds_list_api' %}?strategy=global_macro">View API (Global Macro)</a>
+            </div>
         </section>
-
+        
 
     </main>
 

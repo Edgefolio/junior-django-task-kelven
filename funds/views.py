@@ -16,6 +16,9 @@ def home(request):
 
 def upload(request):
     """ Function to upload data from csv file """
+    if request.method == 'GET':
+       return render(request, 'funds/upload.html')
+
     if request.method == 'POST':
         uploaded_file = request.FILES['data-file']
         
@@ -28,14 +31,14 @@ def upload(request):
         io_string = io.StringIO(file_data)
         next(io_string) # skip first line of file holding field names
         for column in csv.reader(io_string, delimiter=','):
-            _, created = Fund.objects.update_or_create(
-                name = column[0],
-                strategy = column[1],
-                aum = column[2],
-                inception_date = column[3]
+            _, created=Fund.objects.update_or_create(
+                name=column[0],
+                strategy=column[1],
+                aum=column[2] if column[2] else 0,
+                inception_date=column[3] if column[3] else 0
             )
-
-    return render(request, 'funds/upload.html')
+            
+        return render(request, 'funds/upload.html')
 
 
 def view_funds(request):
