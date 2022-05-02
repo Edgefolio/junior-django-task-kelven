@@ -2,6 +2,7 @@ import csv, io
 from django.shortcuts import render
 from django.db.models import Sum
 from django.contrib import messages
+from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Fund
@@ -59,9 +60,19 @@ def view_funds(request):
     return render(request, 'funds/funds.html', context)
 
 
-@api_view(['GET'])
-def funds_api_view(request):
-    """ API View of Fund data """ 
-    apiset = Fund.objects.all()
-    serializer = FundSerializer(apiset, many=True)
+@api_view(('Get',))
+def funds_list(request):
+    """ API View of All Fund Data """
+    funds = Fund.objects.all()
+    serializer = FundSerializer(funds, many=True)
+
+    return Response(serializer.data)
+
+
+@api_view(('Get',))
+def fund_detail(request, id):
+    """ API View of Individual Fund Data """
+    fund = Fund.objects.get(pk=id)
+    serializer = FundSerializer(fund)
+
     return Response(serializer.data)

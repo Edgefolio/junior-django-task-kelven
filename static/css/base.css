@@ -83,7 +83,8 @@ header {
 /*-- Home Page------------*/
 
 .home-section {
-    max-width: 500px;
+    width: 50vw;
+    min-width: 500px;
     margin: auto;
     margin-bottom: 2vh;
     padding: 2vh 4vw;
