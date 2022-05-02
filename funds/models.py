@@ -13,7 +13,7 @@ class Fund(models.Model):
     ]
     strategy = models.CharField(max_length=50, choices=STRATEGY_CHOICES, null=False, blank=False)
     
-    aum = models.PositiveIntegerField(verbose_name="AUM (USD)", null=True, blank=True)
+    aum = models.IntegerField(verbose_name="AUM (USD)", null=True, blank=True)
     inception_date = models.DateField(verbose_name="Inception Date", null=True, blank=True)
 
     # Overrides default name in Admin with actual name value

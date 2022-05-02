@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Base.css-->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <header class="txt-center">
+        <h1>Upload Funds Data File</h1>
+        <p>Placeholder for instructions</p>
+    </header>
+
+    <main class="bordered home-section txt-center">
+        <!--Display message if incorrect file type attempted-->
+        {% if messages %}
+            {% for message in messages %}
+                <div><strong>{{ message|safe }}</strong></div>
+                <a class="btn" href="{% url 'upload' %}">Try another file</a>     
+            {% endfor %}
+            
+            {% else %}
+                <!---Upload form-->
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label>Upload a CSV File</label>
+                    <input type="file" name="data-file">
+                    <button class="btn-small" type="submit">Upload File</button>
+                </form>
+            {% endif %}
+    </main>
+
+    <footer>
+        <a class="btn" href="{% url 'home' %}">Return to home page</a>
+    </footer>
+
+</body>
+</html>
