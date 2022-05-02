@@ -2,9 +2,9 @@ import csv, io
 from django.shortcuts import render
 from django.db.models import Sum
 from django.contrib import messages
-from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework import status
 from .models import Fund
 from .filters import FundFilter
 from .serializers import FundSerializer
@@ -72,7 +72,16 @@ def funds_list(request):
 @api_view(('Get',))
 def fund_detail(request, id):
     """ API View of Individual Fund Data """
-    fund = Fund.objects.get(pk=id)
+    
+    try:
+        fund = Fund.objects.get(pk=id)
+
+    # display error if invalid ID keyed directly into url path / browser
+    except:
+        return Response({
+            'error': 'Fund ID does not exist'
+        }, status=status.HTTP_404_NOT_FOUND)
+
     serializer = FundSerializer(fund)
 
     return Response(serializer.data)
