@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from funds.views import home, upload, view_funds
+from funds.views import home, upload, view_funds, funds_api_view
 
 
 urlpatterns = [
@@ -23,4 +23,5 @@ urlpatterns = [
     path('', home, name='home'),
     path('upload/', upload, name='upload'),
     path('view_funds/', view_funds, name='view_funds'),
-] 
+    path('api/', funds_api_view, name='funds_api_view')
+]

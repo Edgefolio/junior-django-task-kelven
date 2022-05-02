@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     
     # additional django apps
     'django_filters',
+    'rest_framework',
     'django.contrib.humanize',
 
     # site app

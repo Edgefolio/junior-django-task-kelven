@@ -2,8 +2,11 @@ import csv, io
 from django.shortcuts import render
 from django.db.models import Sum
 from django.contrib import messages
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from .models import Fund
 from .filters import FundFilter
+from .serializers import FundSerializer
 
 
 def home(request):
@@ -11,6 +14,7 @@ def home(request):
 
 
 def upload(request):
+    """ Function to upload data from csv file """
     if request.method == 'POST':
         uploaded_file = request.FILES['data-file']
         
@@ -53,3 +57,11 @@ def view_funds(request):
         'filter': filter
     }
     return render(request, 'funds/funds.html', context)
+
+
+@api_view(['GET'])
+def funds_api_view(request):
+    """ API View of Fund data """ 
+    apiset = Fund.objects.all()
+    serializer = FundSerializer(apiset, many=True)
+    return Response(serializer.data)

@@ -17,15 +17,22 @@
     </header>
     
     <main>     
-
+        <!-- Link to upload funds data -->
         <section class="bordered home-section txt-center">
             <h3>Upload Fund Data</h3>
             <a class="btn" href="{% url 'upload' %}">Upload Funds Data File</a>
         </section>
 
+        <!-- Link to view funds data -->
         <section class="bordered home-section txt-center">
             <h3>View Funds Data</h3>
             <a class="btn" href="{% url 'view_funds' %}">View Funds</a>
+        </section>
+
+        <!-- Link to view funds API -->
+        <section class="bordered home-section txt-center">
+            <h3>View Funds API</h3>
+            <a class="btn" href="{% url 'funds_api_view' %}">View API (All Data)</a>
         </section>
 
     </main>
