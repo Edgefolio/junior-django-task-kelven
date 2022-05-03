@@ -51,7 +51,7 @@
                 {% for fund in funds %}
                     <tr>
                         <td class="txt-center"><a href="{% url 'fund_detail_api' fund.id %}">{{ fund.name }}</a></td>
-                        <td class="txt-center">{{ fund.strategy }}</td>
+                        <td class="txt-center">{{ fund.get_strategy_display }}</td>
                         <td class="txt-right">{{ fund.aum|intcomma }}</td>
                         <td class="txt-center">{{ fund.inception_date }}</td>
                     </tr>
