@@ -4,6 +4,7 @@ from django.db.models import Sum
 from django.contrib import messages
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework import generics
 from rest_framework import status
 from .models import Fund
 from .filters import FundFilter
@@ -63,13 +64,17 @@ def view_funds(request):
     return render(request, 'funds/funds.html', context)
 
 
-@api_view(('Get',))
-def funds_list(request):
+class funds_list(generics.ListAPIView):
     """ API View of All Fund Data """
-    funds = Fund.objects.all()
-    serializer = FundSerializer(funds, many=True)
+    serializer_class = FundSerializer
 
-    return Response(serializer.data)
+    def get_queryset(self):
+    
+        funds = Fund.objects.all()
+        strategy = self.request.query_params.get('strategy')
+        if strategy is not None:
+            funds = funds.filter(strategy=strategy)
+        return funds
 
 
 @api_view(('Get',))

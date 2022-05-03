@@ -25,6 +25,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('upload/', views.upload, name='upload'),
     path('view_funds/', views.view_funds, name='view_funds'),
-    path('api/', views.funds_list, name='funds_list_api'),
+    path('api/', views.funds_list.as_view(), name='funds_list_api'),
     path('api/<int:id>', views.fund_detail, name='fund_detail_api')
 ]
