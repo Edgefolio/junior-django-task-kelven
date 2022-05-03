@@ -37,6 +37,9 @@ header {
     padding: 2vh 4vw; 
 }
 
+footer {
+    margin-top: 5vh;
+}
 
 /*--- Utilities ---------*/
 
